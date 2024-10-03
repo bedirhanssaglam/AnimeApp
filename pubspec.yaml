@@ -1,0 +1,47 @@
+name: anime
+description: Simple Kraken Anime App
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.6 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+
+  # State management
+  flutter_bloc: ^8.1.0
+
+  # Dependency injection
+  get_it: ^7.2.0
+  injectable: ^1.5.3
+
+  # HTTP networking
+  chopper: ^6.1.4
+  
+  # Equality
+  equatable: ^2.0.5
+
+  # Firebase
+  firebase_core: ^2.21.0
+  firebase_crashlytics: ^3.4.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  # Lint rules
+  flutter_lints: ^1.0.0
+
+  # Code generation
+  build_runner: ^2.1.11
+  injectable_generator: ^1.5.3
+  chopper_generator: ^6.0.3
+  bloc_test: ^9.1.7
+  mockito: ^5.3.0
+
+flutter:
+  uses-material-design: true
