@@ -12,7 +12,8 @@ class MethodChannelManager {
 
   Future<bool> _requestApprovalFromNative() async {
     try {
-      final bool? result = await platform.invokeMethod<bool?>('requestApproval');
+      final bool? result =
+          await platform.invokeMethod<bool?>('requestApproval');
       return result ?? false;
     } catch (_) {
       return false;

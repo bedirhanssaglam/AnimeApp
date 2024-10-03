@@ -8,7 +8,8 @@ import '../../firebase_options.dart';
 class AppInitialize {
   Future<void> initialize() async {
     WidgetsFlutterBinding.ensureInitialized();
-    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+    await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform);
 
     await configureDependencies();
 

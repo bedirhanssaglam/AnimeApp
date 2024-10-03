@@ -4,7 +4,8 @@ import 'package:anime/core/constants/app_duration.dart';
 import 'package:flutter/material.dart';
 
 class PaginationManager {
-  PaginationManager({required this.scrollController, required this.onLoadMore}) {
+  PaginationManager(
+      {required this.scrollController, required this.onLoadMore}) {
     scrollController.addListener(_onScroll);
   }
 

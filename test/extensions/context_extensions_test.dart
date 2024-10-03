@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('ContextExtensions should return correct ThemeData', (WidgetTester tester) async {
+  testWidgets('ContextExtensions should return correct ThemeData',
+      (WidgetTester tester) async {
     await tester.pumpWidget(
       MaterialApp(
         theme: ThemeData(
@@ -22,7 +23,8 @@ void main() {
     expect(context.colorScheme.primary, Colors.red);
   });
 
-  testWidgets('ContextExtensions should return correct screen size', (WidgetTester tester) async {
+  testWidgets('ContextExtensions should return correct screen size',
+      (WidgetTester tester) async {
     const double screenWidth = 800.0;
     const double screenHeight = 600.0;
 
@@ -32,7 +34,8 @@ void main() {
       ),
     );
 
-    tester.binding.window.physicalSizeTestValue = const Size(screenWidth, screenHeight);
+    tester.binding.window.physicalSizeTestValue =
+        const Size(screenWidth, screenHeight);
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
 
     final BuildContext context = tester.element(find.byType(Scaffold));

@@ -18,7 +18,8 @@ class _AnimeCharacterList extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: animeCharacters?.length,
             itemBuilder: (context, index) {
-              return _AnimeCharacterItem(animeCharacter: animeCharacters?[index]);
+              return _AnimeCharacterItem(
+                  animeCharacter: animeCharacters?[index]);
             },
           ),
         ),

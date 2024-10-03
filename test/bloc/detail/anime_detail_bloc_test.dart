@@ -33,19 +33,22 @@ void main() {
   blocTest<AnimeDetailBloc, AnimeDetailState>(
     'emits [AnimeState.success] when FetchAnimeListEvent is added and repository returns data successfully',
     build: () {
-      when(mockAnimeRepository.fetchAnimeCharacters(any)).thenAnswer((_) async => mockAnime);
+      when(mockAnimeRepository.fetchAnimeCharacters(any))
+          .thenAnswer((_) async => mockAnime);
       return animeDetailBloc;
     },
     act: (bloc) => bloc.add(const FetchAnimeCharactersEvent(1)),
     expect: () => [
-      const AnimeDetailState(status: AnimeDetailStatus.success, animeCharacters: mockAnime),
+      const AnimeDetailState(
+          status: AnimeDetailStatus.success, animeCharacters: mockAnime),
     ],
   );
 
   blocTest<AnimeDetailBloc, AnimeDetailState>(
     'emits [AnimeState.failure] when FetchAnimeListEvent fails due to repository error',
     build: () {
-      when(mockAnimeRepository.fetchAnimeCharacters(any)).thenThrow(Exception('Failed to load anime list'));
+      when(mockAnimeRepository.fetchAnimeCharacters(any))
+          .thenThrow(Exception('Failed to load anime list'));
       return animeDetailBloc;
     },
     act: (bloc) => bloc.add(const FetchAnimeCharactersEvent(1)),

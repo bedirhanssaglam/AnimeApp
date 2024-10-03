@@ -20,7 +20,8 @@ class AnimeBloc extends Bloc<AnimeEvent, AnimeState> {
     on<FetchAnimeListEvent>(_onFetchAnimeListEvent);
   }
 
-  Future<void> _onFetchAnimeListEvent(FetchAnimeListEvent event, Emitter<AnimeState> emit) async {
+  Future<void> _onFetchAnimeListEvent(
+      FetchAnimeListEvent event, Emitter<AnimeState> emit) async {
     if (!state.hasNextPage) return;
 
     try {

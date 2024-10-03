@@ -55,13 +55,15 @@ class AnimeDetailView extends StatelessWidget {
                           _Synopsis(synopsis: animeData.synopsis ?? ''),
                           _Genres(genres: animeData.genres),
                           _EpisodesCount(episodes: animeData.episodes ?? 0),
-                          _AnimeCharacterList(animeCharacters: state.animeCharacters?.data),
+                          _AnimeCharacterList(
+                              animeCharacters: state.animeCharacters?.data),
                         ],
                       ),
                     ),
                   );
                 case AnimeDetailStatus.failure:
-                  return const Center(child: Text(AppConstants.failedToFetchAnimeDetails));
+                  return const Center(
+                      child: Text(AppConstants.failedToFetchAnimeDetails));
               }
             },
           ),

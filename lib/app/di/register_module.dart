@@ -16,7 +16,8 @@ abstract class RegisterModule {
   AnimeRepository get animeRepository => AnimeRepositoryImpl(networkService);
 
   @lazySingleton
-  AnimeDetailRepository get animeDetailRepository => AnimeDetailRepositoryImpl(networkService);
+  AnimeDetailRepository get animeDetailRepository =>
+      AnimeDetailRepositoryImpl(networkService);
 
   @lazySingleton
   MethodChannelManager get methodChannelManager => MethodChannelManager();

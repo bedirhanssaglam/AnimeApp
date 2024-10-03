@@ -6,7 +6,8 @@ class AppConstants {
 
   static const String noAnimeFound = 'No anime found.';
   static const String failedToFetchAnimes = 'Failed to fetch animes.';
-  static const String failedToFetchAnimeDetails = 'Failed to fetch anime details.';
+  static const String failedToFetchAnimeDetails =
+      'Failed to fetch anime details.';
   static const String synopsis = 'Synopsis';
   static const String genres = 'Genres';
   static const String episodesCount = 'Episodes Count';

@@ -44,7 +44,9 @@ class _AnimeViewState extends State<AnimeView> with _AnimeViewMixin {
                 }
                 return ListView.builder(
                   controller: _paginationManager.scrollController,
-                  itemCount: state.anime?.pagination?.hasNextPage ?? false ? (state.anime?.data?.length ?? 0) + 1 : state.anime?.data?.length,
+                  itemCount: state.anime?.pagination?.hasNextPage ?? false
+                      ? (state.anime?.data?.length ?? 0) + 1
+                      : state.anime?.data?.length,
                   itemBuilder: (context, index) {
                     if (index >= (state.anime?.data?.length ?? 0)) {
                       return const AppLoading();
@@ -53,7 +55,8 @@ class _AnimeViewState extends State<AnimeView> with _AnimeViewMixin {
                   },
                 );
               case AnimeStatus.failure:
-                return const Center(child: Text(AppConstants.failedToFetchAnimes));
+                return const Center(
+                    child: Text(AppConstants.failedToFetchAnimes));
             }
           },
         ),

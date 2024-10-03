@@ -13,7 +13,8 @@ import 'package:mocktail/mocktail.dart';
 
 import '../finder_match_extensions.dart';
 
-class MockAnimeDetailBloc extends MockBloc<AnimeDetailEvent, AnimeDetailState> implements AnimeDetailBloc {}
+class MockAnimeDetailBloc extends MockBloc<AnimeDetailEvent, AnimeDetailState>
+    implements AnimeDetailBloc {}
 
 class _AnimeDetailMockView extends StatelessWidget {
   const _AnimeDetailMockView({required this.animeDetailBloc});
@@ -37,7 +38,7 @@ void main() {
   group('AnimeDetailViewTest', () {
     late AnimeDetailBloc animeDetailBloc;
 
-    const AnimeCharacters animeCharacters = AnimeCharacters(
+    const animeCharacters = AnimeCharacters(
       data: [
         AnimeCharacterData(
           character: Character(name: 'main'),
@@ -46,27 +47,31 @@ void main() {
     );
 
     setUp(() async {
-      getIt.reset();
+      await getIt.reset();
       await configureDependencies();
       animeDetailBloc = MockAnimeDetailBloc();
     });
 
     testWidgets('renders loading state initially', (tester) async {
       when(() => animeDetailBloc.state).thenReturn(
-        const AnimeDetailState(status: AnimeDetailStatus.initial),
+        const AnimeDetailState(),
       );
 
-      await tester.pumpWidget(_AnimeDetailMockView(animeDetailBloc: animeDetailBloc));
+      await tester
+          .pumpWidget(_AnimeDetailMockView(animeDetailBloc: animeDetailBloc));
 
       find.byType(CircularProgressIndicator).once();
     });
 
     testWidgets('renders success state when data is fetched', (tester) async {
       when(() => animeDetailBloc.state).thenReturn(
-        const AnimeDetailState(status: AnimeDetailStatus.success, animeCharacters: animeCharacters),
+        const AnimeDetailState(
+            status: AnimeDetailStatus.success,
+            animeCharacters: animeCharacters),
       );
 
-      await tester.pumpWidget(_AnimeDetailMockView(animeDetailBloc: animeDetailBloc));
+      await tester
+          .pumpWidget(_AnimeDetailMockView(animeDetailBloc: animeDetailBloc));
 
       find.text('title').once();
     });
@@ -76,7 +81,8 @@ void main() {
         const AnimeDetailState(status: AnimeDetailStatus.failure),
       );
 
-      await tester.pumpWidget(_AnimeDetailMockView(animeDetailBloc: animeDetailBloc));
+      await tester
+          .pumpWidget(_AnimeDetailMockView(animeDetailBloc: animeDetailBloc));
 
       find.byType(Text).once();
     });

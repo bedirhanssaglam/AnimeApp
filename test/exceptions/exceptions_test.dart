@@ -6,7 +6,8 @@ void main() {
     test('Exception should hold the correct message', () {
       const String message = 'Test error message';
 
-      const ChopperResponseException exception = ChopperResponseException(message);
+      const ChopperResponseException exception =
+          ChopperResponseException(message);
 
       expect(exception.message, equals(message));
     });

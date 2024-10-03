@@ -30,10 +30,13 @@ class AnimeData extends Equatable {
       synopsis: json['synopsis'] as String?,
       score: json['score'] as num?,
       episodes: json['episodes'] as int?,
-      genres: (json['genres'] as List<dynamic>?)?.map((e) => Genres.fromJson(e as Map<String, dynamic>)).toList(),
+      genres: (json['genres'] as List<dynamic>?)
+          ?.map((e) => Genres.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
   }
 
   @override
-  List<Object?> get props => [malId, images, title, synopsis, score, episodes, genres];
+  List<Object?> get props =>
+      [malId, images, title, synopsis, score, episodes, genres];
 }

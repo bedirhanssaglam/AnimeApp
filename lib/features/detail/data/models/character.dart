@@ -17,7 +17,9 @@ class Character {
     return Character(
       malId: json['mal_id'] as int?,
       url: json['url'] as String?,
-      images: json['images'] == null ? null : Images.fromJson(json['images'] as Map<String, dynamic>),
+      images: json['images'] == null
+          ? null
+          : Images.fromJson(json['images'] as Map<String, dynamic>),
       name: json['name'] as String?,
     );
   }

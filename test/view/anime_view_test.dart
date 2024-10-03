@@ -13,7 +13,8 @@ import 'package:mocktail/mocktail.dart';
 
 import '../finder_match_extensions.dart';
 
-class MockAnimeBloc extends MockBloc<AnimeEvent, AnimeState> implements AnimeBloc {}
+class MockAnimeBloc extends MockBloc<AnimeEvent, AnimeState>
+    implements AnimeBloc {}
 
 class _AnimeMockView extends StatelessWidget {
   const _AnimeMockView({required this.animeBloc});
@@ -54,14 +55,14 @@ void main() {
     );
 
     setUp(() async {
-      getIt.reset();
+      await getIt.reset();
       await configureDependencies();
       animeBloc = MockAnimeBloc();
     });
 
     testWidgets('renders loading state initially', (tester) async {
       when(() => animeBloc.state).thenReturn(
-        const AnimeState(status: AnimeStatus.initial),
+        const AnimeState(),
       );
 
       await tester.pumpWidget(_AnimeMockView(animeBloc: animeBloc));

@@ -24,7 +24,7 @@ void main() {
     animeBloc.close();
   });
 
-  const Anime mockAnime = Anime(
+  const mockAnime = Anime(
     data: [AnimeData(malId: 1, title: 'anime')],
     pagination: Pagination(currentPage: 1, hasNextPage: true),
   );
@@ -32,19 +32,21 @@ void main() {
   blocTest<AnimeBloc, AnimeState>(
     'emits [AnimeState.success] when FetchAnimeListEvent is added and repository returns data successfully',
     build: () {
-      when(mockAnimeRepository.fetchAnimes(any)).thenAnswer((_) async => mockAnime);
+      when(mockAnimeRepository.fetchAnimes(any))
+          .thenAnswer((_) async => mockAnime);
       return animeBloc;
     },
     act: (bloc) => bloc.add(const FetchAnimeListEvent()),
     expect: () => [
-      const AnimeState(status: AnimeStatus.success, anime: mockAnime, hasNextPage: true),
+      const AnimeState(status: AnimeStatus.success, anime: mockAnime),
     ],
   );
 
   blocTest<AnimeBloc, AnimeState>(
     'emits [AnimeState.failure] when FetchAnimeListEvent fails due to repository error',
     build: () {
-      when(mockAnimeRepository.fetchAnimes(any)).thenThrow(Exception('Failed to load anime list'));
+      when(mockAnimeRepository.fetchAnimes(any))
+          .thenThrow(Exception('Failed to load anime list'));
       return animeBloc;
     },
     act: (bloc) => bloc.add(const FetchAnimeListEvent()),

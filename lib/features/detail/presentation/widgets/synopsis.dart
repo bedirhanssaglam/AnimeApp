@@ -12,7 +12,8 @@ class _Synopsis extends StatelessWidget {
       children: [
         Padding(
           padding: const AppPadding.smallVertical(),
-          child: Text(AppConstants.synopsis, style: context.textTheme.titleLarge),
+          child:
+              Text(AppConstants.synopsis, style: context.textTheme.titleLarge),
         ),
         Text(synopsis),
         const SizedBox(height: 8),
