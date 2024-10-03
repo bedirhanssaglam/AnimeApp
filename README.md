@@ -65,3 +65,24 @@ This project is a simple anime application developed using [Flutter](https://flu
 - **Mocking**: The app employs the Mockito library to create mock objects, allowing for more flexible and reliable testing processes.
 
 - **HTTP Networking**: The application uses Chopper to manage API calls, enabling efficient network communication.
+
+### Setup
+1. Install the dependencies:
+
+```bash
+flutter pub get
+```
+
+2. Configure Firebase:
+
+Follow the [Firebase setup guide](https://firebase.google.com/docs/flutter/setup?hl=en&platform=ios) to set up your Firebase project.
+Add your `google-services.json` (for Android) and `GoogleService-Info.plist` (for iOS) to the respective directories.
+
+3. Run the application:
+
+```bash
+flutter run
+```
+
+### Requirements
+- Flutter 3.7.12 and Dart 2.19.6
