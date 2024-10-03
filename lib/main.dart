@@ -2,9 +2,10 @@ import 'dart:async' show Future, runZonedGuarded;
 
 import 'package:anime/core/constants/app_constants.dart';
 import 'package:anime/core/init/app_initialize.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 
+import 'app/di/locator.dart';
+import 'app/managers/firebase_crashlytics_manager.dart';
 import 'features/anime/presentation/view/anime_view.dart';
 
 Future<void> main() async {
@@ -13,7 +14,7 @@ Future<void> main() async {
     await appInitialize.initialize();
 
     runApp(const _KrakenAnime());
-  }, (error, stack) => FirebaseCrashlytics.instance.recordError(error, stack));
+  }, (error, stack) => getIt<CrashlyticsManager>().recordError(error, stack));
 }
 
 class _KrakenAnime extends StatelessWidget {
