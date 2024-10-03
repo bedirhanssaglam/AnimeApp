@@ -22,6 +22,24 @@ This project is a simple anime application developed using [Flutter](https://flu
 📄 README.md    
 ```
 
+### Screenshots
+
+<p float="left">
+<table>
+    <tbody>
+            <td align="center" style="background-color: white">
+                <img src="https://github.com/user-attachments/assets/cd568667-2321-4bf7-ab52-fe7e4287743d" width="200"/></a>
+            </td>
+            <td align="center" style="background-color: white">
+               <img src="https://github.com/user-attachments/assets/74655a98-6264-46dc-851a-6ad9f21a6f1e" width="200"/></a>
+            </td>
+              <td align="center" style="background-color: white">
+                <img src="https://github.com/user-attachments/assets/6b5c3a1d-ee85-41cf-bc5a-f510e4f4f053" width="200"/></a>
+            </td>
+    </tbody>
+</table>
+</p>
+
 ### Features
 
 - **Anime List**: The application fetches the most popular anime series from the [Jikan API](https://docs.api.jikan.moe/), allowing users to discover and explore various titles. It supports pagination, displaying 20 items per page.
